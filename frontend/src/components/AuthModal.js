@@ -60,12 +60,27 @@ export default function AuthModal({
       onClose();
     } catch (err) {
       console.error(err);
-      setError(
-        err.response?.data?.detail ||
-          err.response?.data?.non_field_errors?.[0] ||
-          err.response?.data?.username?.[0] ||
-          "Authentication failed. Please check your credentials."
-      );
+      if (err.response?.data) {
+        const data = err.response.data;
+        if (typeof data === "string") {
+          setError(data);
+        } else if (data.detail) {
+          setError(data.detail);
+        } else if (data.non_field_errors && data.non_field_errors.length > 0) {
+          setError(data.non_field_errors[0]);
+        } else {
+          const firstKey = Object.keys(data)[0];
+          if (firstKey) {
+            const val = data[firstKey];
+            const msg = Array.isArray(val) ? val[0] : val;
+            setError(`${firstKey.replace('_', ' ')}: ${msg}`);
+          } else {
+            setError("Authentication failed. Please check your credentials.");
+          }
+        }
+      } else {
+        setError("Network error. Please check your connection or wait for the server to wake up.");
+      }
     } finally {
       setLoading(false);
     }

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
-  "https://contact-book-byuy.onrender.com/api";
+  "https://contact-book-06dr.onrender.com/api";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
