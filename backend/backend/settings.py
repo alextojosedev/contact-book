@@ -31,6 +31,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
+    "https://*.vercel.app",
     "https://contact-book-byuy.onrender.com",
     "https://contact-book-8sz4.onrender.com",
     "http://localhost:3000",
