@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X, Sparkles, ArrowRight, LogIn, Mail } from "lucide-react";
+import { X, Sparkles, ArrowRight, LogIn } from "lucide-react";
 
 const GoogleIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24">
