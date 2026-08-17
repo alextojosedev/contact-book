@@ -15,7 +15,11 @@ SECRET_KEY = 'django-insecure-7yblc_!inxr41yb*sky!e!_hgt4!d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "contact-book-8sz4.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -149,4 +153,4 @@ SIMPLE_JWT = {
 # CORS
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
